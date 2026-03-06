@@ -26,6 +26,29 @@ function PageLoader() {
   );
 }
 
+// Error Fallback
+function ErrorDisplay({ message }: { message: string }) {
+  return (
+    <div className="h-screen flex items-center justify-center bg-red-50 p-6">
+      <div className="max-w-md w-full bg-white rounded-3xl shadow-xl border border-red-100 p-8 text-center">
+        <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <span className="text-3xl">⚠️</span>
+        </div>
+        <h1 className="text-2xl font-black text-gray-900 mb-4">Configuration Error</h1>
+        <p className="text-gray-600 mb-8 leading-relaxed">
+          {message}
+        </p>
+        <button 
+          onClick={() => window.location.reload()}
+          className="w-full py-4 bg-gray-900 text-white rounded-2xl font-bold hover:bg-gray-800 transition-all"
+        >
+          Try Again
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // Protected route wrapper
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -49,7 +72,21 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function AppRoutes() {
-  const { user } = useAuth();
+  let user;
+  try {
+    const auth = useAuth();
+    user = auth.user;
+  } catch (err: any) {
+    return <ErrorDisplay message="Auth Context failed to initialize. Did you add your Supabase URL/Key to Vercel environment variables?" />;
+  }
+
+  // Check if supabase is initialized (not placeholder)
+  const isSupabaseConfigured = !window.location.hostname.includes('vercel.app') || 
+    (import.meta.env.VITE_SUPABASE_URL && !import.meta.env.VITE_SUPABASE_URL.includes('placeholder'));
+
+  if (!isSupabaseConfigured && window.location.hostname !== 'localhost') {
+    return <ErrorDisplay message="Missing environment variables: VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY must be added to your Vercel project settings." />;
+  }
 
   return (
     <Suspense fallback={<PageLoader />}>
