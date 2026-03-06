@@ -173,7 +173,7 @@ export default function BotSettings() {
         setSelectedTemplate(bot.widget_template || 'classic');
         setAngerThreshold(bot.handoff_anger_threshold ?? 70);
         setHandoffAction(bot.handoff_action || 'email');
-        setHandoffEmail(bot.handoff_target_email || '');
+        setHandoffEmail(bot.handoff_target_email || bot.handoff_email || '');
         setCollectEmail(bot.handoff_collect_email ?? true);
         setRealTimeAlerts(bot.handoff_alerts_enabled ?? false);
         setWidgetPosition(bot.widget_position || 'right');
