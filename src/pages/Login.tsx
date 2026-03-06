@@ -170,7 +170,7 @@ export default function Login() {
         >
           <div className="text-center mb-10">
             <div className="flex justify-center mx-auto mb-6">
-              <Logo className="w-16 h-16 rounded-2xl shadow-xl shadow-coral-200/50" />
+              <Logo className="h-12 w-auto" />
             </div>
             <h1 className="text-3xl font-black text-gray-900 mb-2 tracking-tight">
               {isLogin ? 'Welcome Back' : 'Get Started'}

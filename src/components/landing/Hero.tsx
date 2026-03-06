@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
-import { Play, CheckCircle2, MessageSquare, Zap, ArrowRight, Sparkles, Database, Users } from 'lucide-react';
+import { Play, CheckCircle2, Zap, ArrowRight, Sparkles, Database, Users } from 'lucide-react';
+import { Logo } from '../Logo';
 
 export const Hero = ({ onSignup }: { onSignup: () => void }) => {
   const { scrollY } = useScroll();
@@ -177,10 +178,8 @@ export const Hero = ({ onSignup }: { onSignup: () => void }) => {
               <div className="h-16 border-b border-gray-100/50 flex items-center px-6 justify-between bg-white/50">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-coral-400 to-coral-600 flex items-center justify-center text-white shadow-md">
-                      <MessageSquare size={18} />
-                    </div>
-                    <span className="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-green-500 border-2 border-white"></span>
+                    <Logo className="h-8 w-auto" />
+                    <span className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-green-500 border-2 border-white shadow-sm"></span>
                   </div>
                   <div>
                     <p className="text-base font-bold text-gray-900">AI Assistant</p>

@@ -26,7 +26,7 @@ export const Footer = ({ onSignup }: { onSignup?: () => void }) => {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-6">
-                <Logo className="w-8 h-8 rounded-lg" />
+                <Logo className="h-7 w-auto" />
                 <span className="font-black text-xl text-gray-900 tracking-tight">ChatLayer</span>
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed font-medium">
