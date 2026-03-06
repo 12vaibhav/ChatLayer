@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { MessageSquare, Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
+import { Twitter, Linkedin, Instagram, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Logo } from '../Logo';
 
 export const Footer = ({ onSignup }: { onSignup?: () => void }) => {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
@@ -25,9 +26,7 @@ export const Footer = ({ onSignup }: { onSignup?: () => void }) => {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-6">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-coral-400 to-coral-600 flex items-center justify-center text-white shadow-lg shadow-coral-500/20">
-                  <MessageSquare size={18} className="fill-current" />
-                </div>
+                <Logo className="w-8 h-8 rounded-lg" />
                 <span className="font-black text-xl text-gray-900 tracking-tight">ChatLayer</span>
               </div>
               <p className="text-gray-600 mb-6 leading-relaxed font-medium">
