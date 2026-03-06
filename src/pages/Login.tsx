@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { MessageSquare, ArrowRight, CheckCircle2, Eye, EyeOff, Sparkles, Zap, Bot, Send, User } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
+import { Logo } from '../components/Logo';
 
 function ChatBubble({ message, isBot, delay }: { message: string, isBot: boolean, delay: number, key?: React.Key }) {
   return (
@@ -168,8 +169,8 @@ export default function Login() {
           className="w-full max-w-md bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] border border-gray-100 p-10"
         >
           <div className="text-center mb-10">
-            <div className="w-14 h-14 bg-gradient-to-br from-coral-400 to-coral-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-coral-200/50">
-              <MessageSquare className="w-7 h-7 text-white fill-white" />
+            <div className="flex justify-center mx-auto mb-6">
+              <Logo className="w-16 h-16 rounded-2xl shadow-xl shadow-coral-200/50" />
             </div>
             <h1 className="text-3xl font-black text-gray-900 mb-2 tracking-tight">
               {isLogin ? 'Welcome Back' : 'Get Started'}

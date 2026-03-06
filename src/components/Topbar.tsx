@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { MessageSquare, Bell, User, Settings, LogOut, CreditCard, HelpCircle, Sparkles, ChevronDown } from 'lucide-react';
+import { Bell, User, Settings, LogOut, CreditCard, HelpCircle, Sparkles, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '../lib/AuthContext';
+import { Logo } from './Logo';
 
 const Topbar = () => {
   const location = useLocation();
@@ -47,9 +48,7 @@ const Topbar = () => {
     <div className="w-full z-50 bg-gradient-to-r from-coral-500/10 via-white/60 to-orange-400/10 backdrop-blur-xl border-b border-coral-500/10">
       <nav className="max-w-[1600px] mx-auto px-10 py-3 flex items-center justify-between transition-all duration-200">
         <Link to="/dashboard" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-coral-400 to-coral-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-coral-200 group-hover:scale-110 transition-transform">
-            <MessageSquare size={20} fill="currentColor" />
-          </div>
+          <Logo className="group-hover:scale-110 transition-transform" />
           <span className="text-xl font-bold text-gray-900 tracking-tight hidden sm:block">ChatLayer</span>
         </Link>
 

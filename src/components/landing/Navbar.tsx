@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, MessageSquare } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Logo } from '../Logo';
 
 interface NavbarProps {
   onLogin: () => void;
@@ -41,9 +42,7 @@ export const Navbar = ({ onLogin, onSignup }: NavbarProps) => {
         <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-coral-400 to-coral-600 flex items-center justify-center text-white shadow-md shadow-coral-400/30 group-hover:scale-105 transition-transform">
-              <MessageSquare size={20} className="fill-current" />
-            </div>
+            <Logo className="group-hover:scale-105 transition-transform" />
             <span className="font-black text-xl tracking-tight text-gray-900">ChatLayer</span>
           </div>
 
